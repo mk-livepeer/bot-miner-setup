@@ -224,7 +224,7 @@ Group=ethminer
 Type=simple
 Restart=always
 RestartSec=90s
-WorkingDirectory=/home/ethminer/build/
+WorkingDirectory=/home/ethminer/ethminer/build/
 ExecStart=/home/ethminer/ethminer/build/ethminer/ethminer -U -P stratum1+tcp://0x9f3aca1541c59179269035140da607bb7b40c3eb.MINERID@us.eth.wattpool.net:8008
 
 [Install]
