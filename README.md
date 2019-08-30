@@ -233,6 +233,8 @@ WantedBy=default.target
 
 Replace `MINERID` with a unique name, to identify this miner from others.  Also, feel free to replace the Ethereum address with your own.  The address above is being used by LivePeer for development and experimentation.
 
+* Save the document and exit `vi` by first hitting the `ESC` key, then `:` followed by `wq` and `<ENTER>`
+
 * Enable and start the service:
 
 ```bash
