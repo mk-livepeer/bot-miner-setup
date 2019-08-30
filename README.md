@@ -253,6 +253,7 @@ https://ethereum.wattpool.net/account/0x9f3aca1541c59179269035140da607bb7b40c3eb
 ...and scroll down to view your miner by name.
 
 `mk-sidebyside-0` is the name of the instance I am using to verify these instructions.
+
 `reepevil` (livepeer spelled backwards) is the name of the rig running in the NYC office.
 
 NOTE:  Pool-side effective hashrates are based on a comparitive analysis of submitted shares in tandem with network difficulty.  The hashrate number that matters to us most is the figure reported locally by the miner, itself.
