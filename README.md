@@ -6,13 +6,13 @@ As time goes on, alternative installation options will be added, but for now, th
 
 Go through the following installation steps, in order:
 
-* [cuda-ffmpeg-setup.md](ubuntu/cuda-ffmpeg-setup.md)
+* [cuda ffmpeg setup](ubuntu/cuda-ffmpeg-setup.md)
 
-* [cuda-livepeer-setup.md](ubuntu/cuda-livepeer-setup.md)
+* [cuda livepeer setup](ubuntu/cuda-livepeer-setup.md)
 
-* [ethminer-systemd-setup.md](ubuntu/ethminer-systemd-setup.md)
+* [ethminer systemd setup](ubuntu/ethminer-systemd-setup.md)
 
-After following the [ethminer-systemd-setup.md](ubuntu/ethminer-systemd-setup.md) instructions, your GPUs will be mining Ethereum as a systemd service.
+After following the [ethminer systemd setup](ubuntu/ethminer-systemd-setup.md) instructions, your GPUs will be mining Ethereum as a systemd service.
 
 We can run the transcoding service in one of two ways:
 
