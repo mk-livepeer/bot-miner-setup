@@ -40,6 +40,19 @@ Hit `<ENTER>` a few times to get to a command prompt.
 go run cmd/devtool/devtool.go setup broadcaster 
 ```
 
+For example:
+
+```bash
+./livepeer -v 99 -ethController {wallet} -datadir ./.lpdev2/broadcaster_{wallet} \
+    -ethAcctAddr {wallet} \
+    -ethUrl ws://localhost:8546/ \
+    -ethPassword "" \
+    -network=devenv \
+    -monitor=false -currentManifest=true -cliAddr 127.0.0.1:7935 -httpAddr 127.0.0.1:8935  -broadcaster=true -rtmpAddr 127.0.0.1:1935 -depositMultiplier 200
+```
+
+NOTE: The devtool output may not include the `-depositMultiplier 200` argument.  You will have to add it yourself.
+
 * Once the broadcaster is running, hold `<CTRL>` and type `<A>` then `<D>` to leave the screen session running in the background.
 
 * Start another screen session for the transcoder:
@@ -55,6 +68,21 @@ Hit `<ENTER>` a few times to get to a command prompt.
 ```bash
 go run cmd/devtool/devtool.go setup transcoder 
 ```
+
+For example:
+
+```bash
+./livepeer -v 99 -ethController {wallet} -datadir ./.lpdev2/orchestrator_{wallet} \
+    -ethAcctAddr {wallet} \
+    -ethUrl ws://localhost:8546/ \
+    -ethPassword "" \
+    -network=devenv \
+    -monitor=false -currentManifest=true -cliAddr 127.0.0.1:7936 -httpAddr 127.0.0.1:8936  -initializeRound=true \
+    -serviceAddr 127.0.0.1:8936  -transcoder=true -orchestrator=true \
+     -ipfsPath ./.lpdev2/orchestrator_{wallet}/trans -orchSecret secre -pricePerUnit 1 -nvidia 0
+```
+
+NOTE: The devtool output does not include the `-nvidia 0` argument.  You will have to add it yourself.  Use this argument to specify which GPU's to use.  To use the first two GPUs, specify, `-nvidia 0,1`.
 
 * Once the transcoder is running, hold `<CTRL>` and type `<A>` then `<D>` to leave the screen session running in the background.
 
