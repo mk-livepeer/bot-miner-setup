@@ -6,6 +6,12 @@
 adduser --disabled-password livepeer
 ```
 
+* Install `screen`:
+
+```bash
+apt-get install -y screen
+```
+
 * Impersonate the livepeer user:
 
 ```bash

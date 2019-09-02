@@ -11,3 +11,13 @@ Go through the following installation steps, in order:
 * [cuda-livepeer-setup.md](ubuntu/cuda-livepeer-setup.md)
 
 * [ethminer-systemd-setup.md](ubuntu/ethminer-systemd-setup.md)
+
+After following the [ethminer-systemd-setup.md](ubuntu/ethminer-systemd-setup.md) instructions, your GPUs will be mining Ethereum as a systemd service.
+
+We can run the transcoding service in one of two ways:
+
+* [testnet using the devtool](testnet.md)
+
+or
+
+* [offline mode](offline.md)
