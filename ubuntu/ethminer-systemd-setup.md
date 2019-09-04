@@ -14,6 +14,8 @@ apt-get install -y cmake libdbus-1-dev
 adduser --disabled-password ethminer
 ```
 
+Either fill in the user details, or press `<ENTER>` a few times to accept the defaults.
+
 * Impersonate the new user:
 
 ```bash

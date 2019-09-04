@@ -24,7 +24,7 @@ apt-get install software-properties-common -y
 add-apt-repository ppa:longsleep/golang-backports
 ```
 
-Press "Y".  Then continue:
+Press "Y" or "Enter" as per the on-screen instructions.  Then continue:
 
 ```
 apt-get update
@@ -42,7 +42,7 @@ apt-get update
 apt-get install cuda-10-0 -y
 ```
 
-* Install NASM:
+* Build and install NASM:
 
 ```bash
 git clone -b nasm-2.14.02 https://repo.or.cz/nasm.git "$HOME/nasm"
@@ -55,7 +55,7 @@ make install
 
 NOTE: While installing NASM, expect a failure during installation of man pages / documentation.  It should be OK otherwise - It's safe to ignore these errors.
 
-* Install x264:
+* Build and install x264:
 
 ```bash
 git clone http://git.videolan.org/git/x264.git "$HOME/x264"

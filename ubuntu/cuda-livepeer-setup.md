@@ -6,6 +6,8 @@
 adduser --disabled-password livepeer
 ```
 
+Either fill in the user details, or press `<ENTER>` a few times to accept the defaults.
+
 * Install `screen`:
 
 ```bash
