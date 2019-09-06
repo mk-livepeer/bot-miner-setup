@@ -69,11 +69,11 @@ make install-lib-static
 * Install NV Codec Headers:
 
 ```bash
-git clone --single-branch https://github.com/FFmpeg/nv-codec-headers
-cd nv-codec-headers
+git clone --single-branch https://github.com/FFmpeg/nv-codec-headers "$HOME/nv-codec-headers"
+cd "$HOME/nv-codec-headers"
 make install
 cd ..
-rm -rf nv-codec-headers
+rm -rf "$HOME/nv-codec-headers"
 ```
 
 Now that we've downloaded and installed most of our dependencies, it's time to build FFMPEG.
