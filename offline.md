@@ -16,7 +16,7 @@ export LD_LIBRARY_PATH=/usr/local/lib/
 * Change into the `go-livepeer` directory:
 
 ```bash
-cd "$HOME/go/src/github.com/livepeer/go-livepeer"
+cd "$HOME/go-livepeer"
 ```
 
 * Start a screen session for the broadcaster:

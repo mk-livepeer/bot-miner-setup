@@ -23,8 +23,9 @@ su - livepeer
 * Fetch go-livepeer using `go get`, then build livepeer and devtool:
 
 ```bash
-go get github.com/livepeer/go-livepeer/cmd/livepeer
-cd "$HOME/go/src/github.com/livepeer/go-livepeer"
+git clone https://github.com/livepeer/go-livepeer "$HOME/go-livepeer"
+cd "$HOME/go-livepeer"
+go mod download
 go build ./cmd/livepeer/livepeer.go
 go build ./cmd/devtool/devtool.go
 ```
