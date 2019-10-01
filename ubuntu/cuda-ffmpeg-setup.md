@@ -71,6 +71,7 @@ make install-lib-static
 ```bash
 git clone --single-branch https://github.com/FFmpeg/nv-codec-headers "$HOME/nv-codec-headers"
 cd "$HOME/nv-codec-headers"
+git checkout 9fdaf11b8f79d4e41cde9af89656238f25fec6fd
 make install
 cd ..
 rm -rf "$HOME/nv-codec-headers"
