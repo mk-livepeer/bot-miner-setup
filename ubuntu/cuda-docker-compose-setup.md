@@ -88,6 +88,8 @@ If you have multiple GPU's, adjust the `-nvidia` option on the transcoder contai
 For example, for two Nvidia GPUs, specify `-nvidia 0,1`
 If you don't have any Nvidia GPUs, remove the `-nvidia 0` option from the transcoder container command line.
 
+Hit `CTRL-X` to save and exit.  When prompted, hit the `Y` key followed by `ENTER`.
+
 * Start the B/O/T network using the following command:
 
 ```bash
