@@ -6,6 +6,8 @@ As time goes on, alternative installation options will be added, but for now, th
 
 Go through the following installation steps, in order:
 
+* [install cuda drivers](ubuntu/install-cuda.md)
+
 * [cuda ffmpeg setup](ubuntu/cuda-ffmpeg-setup.md)
 
 * [cuda livepeer setup](ubuntu/cuda-livepeer-setup.md)
@@ -21,3 +23,7 @@ We can run the transcoding service in one of two ways:
 or
 
 * [offline mode](offline.md)
+
+As an alternative to the manual installation steps described above, the Livepeer B/O/T network can be installed using `docker-compose`:
+
+* [docker-compose setup](ubuntu/cuda-docker-compose-setup.md)
