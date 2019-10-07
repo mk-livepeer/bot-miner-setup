@@ -36,7 +36,7 @@ The end result should resemble the following:
 }
 ```
 
-Hit <CTRL>-<X> to save and exit.  When prompted, hit the <Y> key followed by <ENTER>.
+Hit `CTRL-X` to save and exit.  When prompted, hit the `Y` key followed by `ENTER`.
 
 * Restart docker:
 
