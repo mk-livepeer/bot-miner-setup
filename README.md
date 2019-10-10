@@ -27,3 +27,5 @@ or
 As an alternative to the manual installation steps described above, the Livepeer B/O/T network can be installed using `docker-compose`:
 
 * [docker-compose setup](ubuntu/cuda-docker-compose-setup.md)
+
+For some basic information about running benchmarks, see [benchmarks](benchmarks.md)
