@@ -14,6 +14,18 @@ sudo apt-get update
 sudo apt-get install -y cuda-drivers nvidia-docker2
 ```
 
+Confirm that the drivers were installed properly using the `nvidia-smi` utility:
+
+```bash
+nvidia-smi
+```
+
+If `nvidia-smi` reports a driver version mismatch error, you will have to reboot the machine:
+
+```bash
+sudo reboot
+```
+
 * Update `/etc/docker/daemon.json` to add "nvidia-container-runtime" and make it the default runtime.
 
 On a clean install, you will have to edit the file and add a comma `,` followed by the `"default-runtime": "nvidia"` line:
