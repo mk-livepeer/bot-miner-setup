@@ -74,7 +74,7 @@ nano docker-compose.yml
 version: '3.5'
 services:
   orchestrator:
-    image: livepeer/go-livepeer:itgpuinswarm
+    image: livepeer/go-livepeer:master
     command: '-orchestrator --network offchain -orchSecret test -serviceAddr orchestrator:8935 -orchAddr 0.0.0.0'
     ports:
       - 7935:7935
@@ -82,13 +82,13 @@ services:
   transcoder:
     depends_on:
       - orchestrator
-    image: livepeer/go-livepeer:itgpuinswarm
+    image: livepeer/go-livepeer:master
     command: '-transcoder -network offchain -orchAddr orchestrator:8935 -orchSecret test -nvidia 0'
   broadcaster:
     depends_on:
       - orchestrator
       - transcoder
-    image: livepeer/go-livepeer:itgpuinswarm
+    image: livepeer/go-livepeer:master
     command: '-broadcaster -rtmpAddr broadcaster -orchAddr orchestrator:8935 -cliAddr broadcaster:7936 -httpAddr broadcaster:8936'
     ports:
       - 1935:1935
