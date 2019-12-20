@@ -20,12 +20,22 @@ apt-get install -y screen
 su - livepeer
 ```
 
-* Fetch go-livepeer using `go get`, then build livepeer and devtool:
+* Fetch go-livepeer and dependencies:
 
 ```bash
 git clone https://github.com/livepeer/go-livepeer "$HOME/go-livepeer"
 cd "$HOME/go-livepeer"
 go mod download
+```
+
+* Define the following environment variable to enable support for the rinkeby testnet:
+
+```bash
+export HIGHEST_CHAIN_TAG=rinkeby
+```
+
+* Build livepeer and devtool:
+```
 go build ./cmd/livepeer/livepeer.go
 go build ./cmd/devtool/devtool.go
 ```

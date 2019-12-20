@@ -1,4 +1,4 @@
-***CUDA GPU-ENABLED DOCKER-COMPOSE B/O/T-NETWORK***
+***CUDA GPU-ENABLED DOCKER-COMPOSE B/OT-NETWORK***
 
 * Log in as a non-root user with sudo rights, then execute the following block of commands to install `nvidia-docker2`:
 
@@ -75,19 +75,13 @@ version: '3.5'
 services:
   orchestrator:
     image: livepeer/go-livepeer:master
-    command: '-orchestrator --network offchain -orchSecret test -serviceAddr orchestrator:8935 -orchAddr 0.0.0.0'
+    command: '-orchestrator -transcoder -network offchain -serviceAddr orchestrator:8935 -orchAddr 0.0.0.0 -nvidia 0'
     ports:
       - 7935:7935
       - 8935:8935
-  transcoder:
-    depends_on:
-      - orchestrator
-    image: livepeer/go-livepeer:master
-    command: '-transcoder -network offchain -orchAddr orchestrator:8935 -orchSecret test -nvidia 0'
   broadcaster:
     depends_on:
       - orchestrator
-      - transcoder
     image: livepeer/go-livepeer:master
     command: '-broadcaster -rtmpAddr broadcaster -orchAddr orchestrator:8935 -cliAddr broadcaster:7936 -httpAddr broadcaster:8936'
     ports:
@@ -102,7 +96,7 @@ If you don't have any Nvidia GPUs, remove the `-nvidia 0` option from the transc
 
 Hit `CTRL-X` to save and exit.  When prompted, hit the `Y` key followed by `ENTER`.
 
-* Start the B/O/T network using the following command:
+* Start the B/OT network using the following command:
 
 ```bash
 sudo docker-compose up
@@ -113,29 +107,23 @@ You should see output similar to:
 ```
 Starting botnetworkcomposed_orchestrator_1 ... 
 Starting botnetworkcomposed_orchestrator_1 ... done
-Starting botnetworkcomposed_transcoder_1 ... 
-Starting botnetworkcomposed_transcoder_1 ... done
 Starting botnetworkcomposed_broadcaster_1 ... 
 Starting botnetworkcomposed_broadcaster_1 ... done
-Attaching to botnetworkcomposed_orchestrator_1, botnetworkcomposed_transcoder_1, botnetworkcomposed_broadcaster_1
-orchestrator_1  | I1006 18:42:24.729607       1 livepeer.go:205] ***Livepeer is running on the offchain*** network
-orchestrator_1  | I1006 18:42:24.740214       1 livepeer.go:295] ***Livepeer is in off-chain mode***
-orchestrator_1  | I1006 18:42:24.740609       1 webserver.go:65] CLI server listening on 127.0.0.1:7935
-orchestrator_1  | I1006 18:42:24.741034       1 livepeer.go:682] ***Livepeer Running in Orchestrator Mode***
-orchestrator_1  | I1006 18:42:24.741193       1 cert.go:83] Private key and cert not found. Generating
-transcoder_1    | I1006 18:42:26.341787       1 livepeer.go:205] ***Livepeer is running on the offchain*** network
-orchestrator_1  | I1006 18:42:24.761638       1 cert.go:22] Generating cert for orchestrator
-orchestrator_1  | I1006 18:42:24.762918       1 rpc.go:152] Listening for RPC on :8935
-broadcaster_1   | I1006 18:42:27.967617       1 livepeer.go:205] ***Livepeer is running on the offchain*** network
-transcoder_1    | I1006 18:42:26.342908       1 livepeer.go:281] ***Livepeer is in transcoder mode ***
-transcoder_1    | I1006 18:42:26.342943       1 ot_rpc.go:50] Registering transcoder to orchestrator:8935
-orchestrator_1  | I1006 18:42:26.354784       1 ot_rpc.go:191] Got a RegisterTranscoder request from transcoder=172.18.0.3:45382 capacity=10
-broadcaster_1   | I1006 18:42:27.969054       1 livepeer.go:295] ***Livepeer is in off-chain mode***
-orchestrator_1  | I1006 18:42:26.741187       1 rpc.go:220] Connecting RPC to https://orchestrator:8935
-orchestrator_1  | I1006 18:42:26.744904       1 rpc.go:192] Received Ping request
-broadcaster_1   | I1006 18:42:27.969124       1 livepeer.go:684] ***Livepeer Running in Broadcaster Mode***
-broadcaster_1   | I1006 18:42:27.969154       1 livepeer.go:685] Video Ingest Endpoint - rtmp://broadcaster:1935
-broadcaster_1   | I1006 18:42:27.969268       1 webserver.go:65] CLI server listening on broadcaster:7936
+Attaching to botnetworkcomposed_orchestrator_1, botnetworkcomposed_broadcaster_1
+orchestrator_1  | I1204 21:12:42.359095       1 livepeer.go:201] ***Livepeer is running on the offchain network***
+orchestrator_1  | I1204 21:12:42.363834       1 livepeer.go:292] ***Livepeer is in off-chain mode***
+orchestrator_1  | I1204 21:12:42.363988       1 livepeer.go:740] ***Livepeer Running in Orchestrator Mode***
+orchestrator_1  | I1204 21:12:42.364113       1 webserver.go:68] CLI server listening on 127.0.0.1:7935
+orchestrator_1  | I1204 21:12:42.364265       1 cert.go:83] Private key and cert not found. Generating
+orchestrator_1  | I1204 21:12:42.394777       1 cert.go:22] Generating cert for orchestrator
+orchestrator_1  | I1204 21:12:42.395576       1 rpc.go:147] Listening for RPC on :8935
+broadcaster_1   | I1204 21:12:43.338729       1 livepeer.go:201] ***Livepeer is running on the offchain network***
+broadcaster_1   | I1204 21:12:43.340571       1 livepeer.go:292] ***Livepeer is in off-chain mode***
+broadcaster_1   | I1204 21:12:43.341058       1 livepeer.go:742] ***Livepeer Running in Broadcaster Mode***
+broadcaster_1   | I1204 21:12:43.341361       1 webserver.go:68] CLI server listening on broadcaster:7936
+broadcaster_1   | I1204 21:12:43.341738       1 livepeer.go:743] Video Ingest Endpoint - rtmp://broadcaster:1935
+orchestrator_1  | I1204 21:12:44.364588       1 rpc.go:215] Connecting RPC to https://orchestrator:8935
+orchestrator_1  | I1204 21:12:44.372509       1 rpc.go:187] Received Ping request
 ```
 
 Leave this running.

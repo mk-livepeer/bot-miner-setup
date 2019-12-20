@@ -27,10 +27,16 @@ screen
 
 Hit `<ENTER>` a few times to get to a command prompt.
 
-* Start an offline orchestrator on port 8935 with a secret.  Replace "test" with a secret of your own:
+* Store your orchSecret password in a text file. Replace "secret" with a secret of your own:
 
 ```bash
-./livepeer -orchestrator --network offchain -orchSecret test -serviceAddr 127.0.0.1:8935 -orchAddr 0.0.0.0:8935
+echo secret > osecret.txt
+```
+
+* Start an offline orchestrator on port 8935 with a secret.
+
+```bash
+./livepeer -orchestrator -network offchain -orchSecret osecret.txt -serviceAddr 127.0.0.1:8935 -orchAddr 0.0.0.0:8935
 ```
 
 * Once the broadcaster is running, hold `<CTRL>` and type `<A>` then `<D>` to leave the screen session running in the background.
@@ -46,7 +52,7 @@ Hit `<ENTER>` a few times to get to a command prompt.
 * Start an offline transcoder connecting to the orchestrator with secret "test".  Replace "test" with your own secret:
 
 ```bash
-./livepeer -transcoder -network offchain -orchAddr 127.0.0.1:8935 -orchSecret test -nvidia 0
+./livepeer -transcoder -network offchain -orchAddr 127.0.0.1:8935 -orchSecret osecret.txt -nvidia 0
 ```
 
 NOTE: Use the `-nvidia` argument to control the GPUs being used.  To use the first two GPUs, specify, `-nvidia 0,1`
