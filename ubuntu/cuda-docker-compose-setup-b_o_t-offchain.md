@@ -80,14 +80,14 @@ services:
       - 7935:7935
       - 8935:8935
     volumes:
-      - osecret.txt:/secret.txt
+      - ./osecret.txt:/secret.txt
   transcoder:
     depends_on:
       - orchestrator
     image: livepeer/go-livepeer:master
     command: '-transcoder -network offchain -orchAddr orchestrator:8935 -orchSecret /secret.txt -nvidia 0'
     volumes:
-      - osecret.txt:/secret.txt
+      - ./osecret.txt:/secret.txt
   broadcaster:
     depends_on:
       - orchestrator

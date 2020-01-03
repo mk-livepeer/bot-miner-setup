@@ -81,14 +81,14 @@ services:
       - 8935:8935
     volumes:
       - orchroot:/root
-      - osecret.txt:/secret.txt
+      - ./osecret.txt:/secret.txt
   transcoder:
     depends_on:
       - orchestrator
     image: livepeer/go-livepeer:master
     command: '-transcoder -network rinkeby -orchAddr orchestrator:8935 -orchSecret /secret.txt -nvidia 0'
     volumes:
-      - osecret.txt:/secret.txt
+      - ./osecret.txt:/secret.txt
   broadcaster:
     depends_on:
       - orchestrator
@@ -139,7 +139,7 @@ echo MyEthPassPhrase > passphrase_orch.txt
 ```yaml
     volumes:
       - orchroot:/root
-      - osecret.txt:/secret.txt
+      - ./osecret.txt:/secret.txt
       - ./passphrase_orch.txt:/root/pw.txt
 ```
 
