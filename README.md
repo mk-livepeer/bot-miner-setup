@@ -32,9 +32,9 @@ For a better idea of how things will behave on the network, we can run the servi
 
 As an alternative to the manual installation steps described above, the Livepeer B/O/T network can be installed using `docker-compose`:
 
-* [docker-compose setup: b/o/t offchain](ubuntu/cuda-docker-compose-setup-b_o_t-offchain)
-* [docker-compose setup: b/ot offchain](ubuntu/cuda-docker-compose-setup-b_ot-offchain)
-* [docker-compose setup: b/o/t rinkeby testnet](ubuntu/cuda-docker-compose-setup-b_o_t-rinkeby)
-* [docker-compose setup: b/ot rinkeby testnet](ubuntu/cuda-docker-compose-setup-b_ot-rinkeby)
+* [docker-compose setup: b/o/t offchain](ubuntu/cuda-docker-compose-setup-b_o_t-offchain.md)
+* [docker-compose setup: b/ot offchain](ubuntu/cuda-docker-compose-setup-b_ot-offchain.md)
+* [docker-compose setup: b/o/t rinkeby testnet](ubuntu/cuda-docker-compose-setup-b_o_t-rinkeby.md)
+* [docker-compose setup: b/ot rinkeby testnet](ubuntu/cuda-docker-compose-setup-b_ot-rinkeby.md)
 
 For some basic information about running benchmarks, see [benchmarks](benchmarks.md)
