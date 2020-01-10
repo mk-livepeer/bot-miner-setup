@@ -1,0 +1,90 @@
+version: '3.5'
+services:
+  orchestrator:
+    image: livepeer/go-livepeer:master
+    command: '-orchestrator -network offchain -orchSecret /secret.txt -serviceAddr orchestrator:8935 -cliAddr 0.0.0.0:7935 -monitor=true'
+    ports:
+      - 7935:7935
+      - 8935:8935
+    volumes:
+      - orchroot:/root
+      - ./osecret.txt:/secret.txt
+  transcoder:
+    depends_on:
+      - orchestrator
+    image: livepeer/go-livepeer:master
+    command: '-transcoder -network offchain -orchAddr orchestrator:8935 -orchSecret /secret.txt -nvidia 0'
+    volumes:
+      - ./osecret.txt:/secret.txt
+  broadcaster:
+    depends_on:
+      - orchestrator
+      - transcoder
+    image: livepeer/go-livepeer:master
+    command: '-broadcaster -network offchain -rtmpAddr broadcaster -orchAddr orchestrator:8935 -cliAddr broadcaster:7936 -httpAddr broadcaster:8936 -monitor=true'
+    ports:
+      - 1935:1935
+      - 7936:7936
+      - 8936:8936
+    volumes:
+      - bcstroot:/root
+  cadvisor:
+    image: 'google/cadvisor:latest'
+    ports:
+      - '8080:8080'
+    restart: unless-stopped
+    volumes:
+      - '/:/rootfs:ro'
+      - '/var/run:/var/run:rw'
+      - '/sys:/sys:ro'
+      - '/var/lib/docker/:/var/lib/docker:ro'
+      - '/dev/disk/:/dev/disk:ro'
+      - '/dev/kmsg:/dev/kmsg:ro'
+  grafana:
+    image: grafana/grafana
+    ports:
+      - '3001:3000'
+    depends_on:
+      - prometheus
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: password
+      GF_AUTH_ANONYMOUS_ENABLED: 'True'
+      GF_AUTH_ANONYMOUS_ORG_NAME: Main Org.
+      GF_AUTH_ANONYMOUS_ORG_ROLE: Editor # use Viewer for production
+    restart: unless-stopped
+    volumes:
+      - './grafana/grafanaDatasources.yml:/etc/grafana/provisioning/datasources/datasources.yml'
+      - './grafana/grafanaDashboards.yml:/etc/grafana/provisioning/dashboards/dashboards.yml'
+      - './grafana/dashboards:/var/lib/grafana/dashboards'
+  node-exporter:
+    image: 'prom/node-exporter:latest'
+    command:
+      - '--path.procfs=/host/proc'
+      - '--path.sysfs=/host/sys'
+      - '--path.rootfs=/host'
+      - >-
+        --collector.filesystem.ignored-mount-points="^(/rootfs|/host|)/(sys|proc|dev|host|etc)($$|/)"
+      - >-
+        --collector.filesystem.ignored-fs-types="^(sys|proc|auto|cgroup|devpts|ns|au|fuse.lxc|mqueue)(fs|)$$"
+    restart: unless-stopped
+    volumes:
+      - '/proc:/host/proc:ro'
+      - '/sys:/host/sys:ro'
+      - '/:/rootfs:ro'
+  prometheus:
+    image: 'prom/prometheus:latest'
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.retention.time=30d'
+    depends_on:
+      - cadvisor
+      - node-exporter
+    ports:
+      - '9090:9090'
+    restart: unless-stopped
+    volumes:
+      - './prometheus.yml:/etc/prometheus/prometheus.yml'
+volumes:
+  orchroot:
+  bcstroot:
