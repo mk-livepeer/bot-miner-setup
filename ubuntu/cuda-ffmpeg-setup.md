@@ -86,7 +86,7 @@ git clone https://git.ffmpeg.org/ffmpeg.git "$HOME/ffmpeg"
 
 ```bash
 cd "$HOME/ffmpeg"
-git checkout 4cfc34d9a8bffe4a1dd53187a3e0f25f34023a09
+git checkout 3ea705767720033754e8d85566460390191ae27d
 ./configure --disable-static --enable-shared \
         --enable-gpl --enable-nonfree --enable-libx264 --enable-cuda --enable-cuvid \
         --enable-nvenc --enable-cuda-nvcc --enable-libnpp --enable-gnutls \
