@@ -75,7 +75,7 @@ version: '3.5'
 services:
   orchestrator:
     image: livepeer/go-livepeer:master
-    command: '-orchestrator -network rinkeby -orchSecret /secret.txt -serviceAddr orchestrator:8935 -orchAddr 0.0.0.0 -pricePerUnit 1 -initializeRound=true'
+    command: '-orchestrator -network rinkeby -orchSecret /secret.txt -serviceAddr orchestrator:8935 -orchAddr 0.0.0.0 -pricePerUnit 1 -initializeRound true'
     ports:
       - 7935:7935
       - 8935:8935
@@ -94,7 +94,7 @@ services:
       - orchestrator
       - transcoder
     image: livepeer/go-livepeer:master
-    command: '-broadcaster -network rinkeby -rtmpAddr broadcaster -orchAddr orchestrator:8935 -cliAddr broadcaster:7936 -httpAddr broadcaster:8936 -depositMultiplier 1'
+    command: '-broadcaster -network rinkeby -rtmpAddr broadcaster -orchAddr orchestrator:8935 -cliAddr broadcaster:7936 -httpAddr broadcaster:8936'
     ports:
       - 1935:1935
       - 7936:7936
@@ -146,7 +146,7 @@ echo MyEthPassPhrase > passphrase_orch.txt
 * Edit the `docker-compose.yml` to add the `ethPassword` argument to the orchestrator command line.  The new command should look like this:
 
 ```bash
--orchestrator -network rinkeby -orchSecret /secret.txt -serviceAddr orchestrator:8935 -orchAddr 0.0.0.0 -pricePerUnit 1 -initializeRound=true -ethPassword=/root/pw.txt
+-orchestrator -network rinkeby -orchSecret /secret.txt -serviceAddr orchestrator:8935 -orchAddr 0.0.0.0 -pricePerUnit 1 -initializeRound true -ethPassword=/root/pw.txt
 ```
 
 * Next, we must initialize an ethereum account for the broadcaster.  Bring up the broadcaster using interactive mode:
@@ -176,7 +176,7 @@ echo MyEthPassPhrase > passphrase_bcst.txt
 * Edit the `docker-compose.yml` to add the `ethPassword` argument to the broadcaster command line.  The new command should look like this:
 
 ```bash
--broadcaster -network rinkeby -rtmpAddr broadcaster -orchAddr orchestrator:8935 -cliAddr broadcaster:7936 -httpAddr broadcaster:8936 -depositMultiplier 1 -ethPassword=/root/pw.txt
+-broadcaster -network rinkeby -rtmpAddr broadcaster -orchAddr orchestrator:8935 -cliAddr broadcaster:7936 -httpAddr broadcaster:8936 -ethPassword=/root/pw.txt
 ```
 
 Now, we must fund the accounts with ETH and LPT.  We'll have to bring up the B/O/T network and then execute the CLI in another shell.

@@ -30,6 +30,8 @@ For a better idea of how things will behave on the network, we can run the servi
 * [Rinkeby testnet b/o/t mode](testnet-rinkeby-b_o_t.md)
 * [Rinkeby testnet b/ot mode](testnet-rinkeby-b_ot.md)
 
+* To run these services via systemd, follow [these instructions](systemd/README.md) to create systemd services.
+
 As an alternative to the manual installation steps described above, the Livepeer B/O/T network can be installed using `docker-compose`:
 
 * [docker-compose setup: b/o/t offchain](ubuntu/cuda-docker-compose-setup-b_o_t-offchain.md)

@@ -29,7 +29,7 @@ Hit `<ENTER>` a few times to get to a command prompt.
 * Run the following command to start the broadcaster:
 
 ```bash
-./livepeer -v 99 ./livepeer -network rinkeby -broadcaster -orchAddr 127.0.0.1:8935 -cliAddr 127.0.0.1:7936 -httpAddr 127.0.0.1:8936 -depositMultiplier 1
+./livepeer -v 99 ./livepeer -network rinkeby -broadcaster -orchAddr 127.0.0.1:8935 -cliAddr 127.0.0.1:7936 -httpAddr 127.0.0.1:8936
 ```
 
 * Once the broadcaster is running, hold `<CTRL>` and type `<A>` then `<D>` to leave the screen session running in the background.
@@ -51,7 +51,7 @@ echo secret > osecret.txt
 * Run the following command to start the orchestrator:
 
 ```bash
-./livepeer -v 99 -network rinkeby -orchestrator -orchSecret osecret.txt -pricePerUnit 1 -initializeRound=true -serviceAddr=127.0.0.1:8935 -orchAddr 0.0.0.0:8935
+./livepeer -v 99 -network rinkeby -orchestrator -orchSecret osecret.txt -pricePerUnit 1 -initializeRound true -serviceAddr 127.0.0.1:8935 -orchAddr 0.0.0.0:8935
 ```
 
 * Once the orchestrator is running, hold `<CTRL>` and type `<A>` then `<D>` to leave the screen session running in the background.
