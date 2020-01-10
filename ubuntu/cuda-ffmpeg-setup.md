@@ -59,9 +59,9 @@ make install-lib-static
 * Install NV Codec Headers:
 
 ```bash
-git clone --single-branch https://github.com/FFmpeg/nv-codec-headers "$HOME/nv-codec-headers"
+git clone --single-branch https://git.videolan.org/git/ffmpeg/nv-codec-headers.git "$HOME/nv-codec-headers"
 cd "$HOME/nv-codec-headers"
-git checkout 9fdaf11b8f79d4e41cde9af89656238f25fec6fd
+git checkout 250292dd20af60edc6e0d07f1d6e489a2f8e1c44
 make install
 cd ..
 rm -rf "$HOME/nv-codec-headers"
