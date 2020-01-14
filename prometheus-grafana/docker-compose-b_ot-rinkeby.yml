@@ -2,7 +2,7 @@ version: '3.5'
 services:
   orchtran:
     image: livepeer/go-livepeer:master
-    command: '-network rinkeby -orchestrator -transcoder -serviceAddr orchtran:8935 -initializeRound=true -pricePerUnit 1 -nvidia 0 -ethPassword=/root/pw.txt -cliAddr 0.0.0.0:7935 -monitor=true'
+    command: '-network rinkeby -orchestrator -transcoder -serviceAddr orchtran:8935 -initializeRound -pricePerUnit 1 -nvidia 0 -ethPassword=/root/pw.txt -cliAddr 0.0.0.0:7935 -monitor=true'
     ports:
       - 7935:7935
       - 8935:8935

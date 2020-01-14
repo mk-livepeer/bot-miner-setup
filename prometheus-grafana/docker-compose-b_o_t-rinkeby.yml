@@ -2,7 +2,7 @@ version: '3.5'
 services:
   orchestrator:
     image: livepeer/go-livepeer:master
-    command: '-orchestrator -network rinkeby -orchSecret /secret.txt -serviceAddr orchestrator:8935 -pricePerUnit 1 -initializeRound=true -ethPassword=/root/pw.txt -cliAddr 0.0.0.0:7935 -monitor=true'
+    command: '-orchestrator -network rinkeby -orchSecret /secret.txt -serviceAddr orchestrator:8935 -pricePerUnit 1 -initializeRound -ethPassword=/root/pw.txt -cliAddr 0.0.0.0:7935 -monitor=true'
     ports:
       - 7935:7935
       - 8935:8935

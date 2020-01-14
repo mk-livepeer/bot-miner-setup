@@ -77,7 +77,7 @@ For example:
     -ethUrl ws://localhost:8546/ \
     -ethPassword "" \
     -network=devenv \
-    -monitor=false -currentManifest=true -cliAddr 127.0.0.1:7936 -httpAddr 127.0.0.1:8936  -initializeRound true \
+    -monitor=false -currentManifest=true -cliAddr 127.0.0.1:7936 -httpAddr 127.0.0.1:8936  -initializeRound \
     -serviceAddr 127.0.0.1:8936  -transcoder=true -orchestrator=true \
      -ipfsPath ./.lpdev2/orchestrator_{wallet}/trans -orchSecret secre -pricePerUnit 1 -nvidia 0
 ```

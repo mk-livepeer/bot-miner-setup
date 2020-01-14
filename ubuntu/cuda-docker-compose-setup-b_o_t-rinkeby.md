@@ -75,7 +75,7 @@ version: '3.5'
 services:
   orchestrator:
     image: livepeer/go-livepeer:master
-    command: '-orchestrator -network rinkeby -orchSecret /secret.txt -serviceAddr orchestrator:8935 -orchAddr 0.0.0.0 -pricePerUnit 1 -initializeRound true'
+    command: '-orchestrator -network rinkeby -orchSecret /secret.txt -serviceAddr orchestrator:8935 -orchAddr 0.0.0.0 -pricePerUnit 1 -initializeRound'
     ports:
       - 7935:7935
       - 8935:8935
@@ -146,7 +146,7 @@ echo MyEthPassPhrase > passphrase_orch.txt
 * Edit the `docker-compose.yml` to add the `ethPassword` argument to the orchestrator command line.  The new command should look like this:
 
 ```bash
--orchestrator -network rinkeby -orchSecret /secret.txt -serviceAddr orchestrator:8935 -orchAddr 0.0.0.0 -pricePerUnit 1 -initializeRound true -ethPassword=/root/pw.txt
+-orchestrator -network rinkeby -orchSecret /secret.txt -serviceAddr orchestrator:8935 -orchAddr 0.0.0.0 -pricePerUnit 1 -initializeRound -ethPassword=/root/pw.txt
 ```
 
 * Next, we must initialize an ethereum account for the broadcaster.  Bring up the broadcaster using interactive mode:
