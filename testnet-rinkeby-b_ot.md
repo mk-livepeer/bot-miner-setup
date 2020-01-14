@@ -45,7 +45,7 @@ Hit `<ENTER>` a few times to get to a command prompt.
 * Run the following command to start the orchestrator / transcoder:
 
 ```bash
-./livepeer -v 99 -network rinkeby -orchestrator -transcoder -pricePerUnit 1 -nvidia 0 -initializeRound true -serviceAddr 127.0.0.1:8935
+./livepeer -v 99 -network rinkeby -orchestrator -transcoder -pricePerUnit 1 -nvidia 0 -initializeRound -serviceAddr 127.0.0.1:8935
 ```
 
 * Once the orchestrator / transcoder is running, hold `<CTRL>` and type `<A>` then `<D>` to leave the screen session running in the background.

@@ -35,7 +35,7 @@ Restart=always
 RestartSec=90s
 Environment="LD_LIBRARY_PATH=/usr/local/lib/"
 WorkingDirectory=/home/livepeer/go-livepeer/
-ExecStart=/home/livepeer/go-livepeer/livepeer -network rinkeby -orchestrator -orchSecret osecret.txt -pricePerUnit 1 -initializeRound true -serviceAddr 127.0.0.1:8935 -ethPassword pw.txt
+ExecStart=/home/livepeer/go-livepeer/livepeer -network rinkeby -orchestrator -orchSecret osecret.txt -pricePerUnit 1 -initializeRound -serviceAddr 127.0.0.1:8935 -ethPassword pw.txt
 
 [Install]
 WantedBy=default.target
@@ -137,7 +137,7 @@ Restart=always
 RestartSec=90s
 Environment="LD_LIBRARY_PATH=/usr/local/lib/"
 WorkingDirectory=/home/livepeer/go-livepeer/
-ExecStart=/home/livepeer/go-livepeer/livepeer -network rinkeby -orchestrator -transcoder -pricePerUnit 1 -nvidia 0 -initializeRound true -serviceAddr 127.0.0.1:8935 -ethPassword pw.txt
+ExecStart=/home/livepeer/go-livepeer/livepeer -network rinkeby -orchestrator -transcoder -pricePerUnit 1 -nvidia 0 -initializeRound -serviceAddr 127.0.0.1:8935 -ethPassword pw.txt
 
 [Install]
 WantedBy=default.target

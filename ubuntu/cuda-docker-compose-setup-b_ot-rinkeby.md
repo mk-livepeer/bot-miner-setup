@@ -75,7 +75,7 @@ version: '3.5'
 services:
   orchtran:
     image: livepeer/go-livepeer:master
-    command: '-network rinkeby -orchestrator -transcoder -serviceAddr orchtran:8935 -orchAddr 0.0.0.0 -initializeRound true -pricePerUnit 1 -nvidia 0'
+    command: '-network rinkeby -orchestrator -transcoder -serviceAddr orchtran:8935 -orchAddr 0.0.0.0 -initializeRound -pricePerUnit 1 -nvidia 0'
     ports:
       - 7935:7935
       - 8935:8935
@@ -130,7 +130,7 @@ echo MyEthPassPhrase > passphrase_orch.txt
 * Edit the `docker-compose.yml` to add the `ethPassword` argument to the orchtran command line.  The new command should look like this:
 
 ```bash
--network rinkeby -orchestrator -transcoder -serviceAddr orchestrator:8935 -orchAddr 0.0.0.0 -initializeRound true -pricePerUnit 1 -nvidia 0 -ethPassword=/root/pw.txt
+-network rinkeby -orchestrator -transcoder -serviceAddr orchestrator:8935 -orchAddr 0.0.0.0 -initializeRound -pricePerUnit 1 -nvidia 0 -ethPassword=/root/pw.txt
 ```
 
 * Next, we must initialize an ethereum account for the broadcaster.  Bring up the broadcaster using interactive mode:

@@ -51,7 +51,7 @@ echo secret > osecret.txt
 * Run the following command to start the orchestrator:
 
 ```bash
-./livepeer -v 99 -network rinkeby -orchestrator -orchSecret osecret.txt -pricePerUnit 1 -initializeRound true -serviceAddr 127.0.0.1:8935 -orchAddr 0.0.0.0:8935
+./livepeer -v 99 -network rinkeby -orchestrator -orchSecret osecret.txt -pricePerUnit 1 -initializeRound -serviceAddr 127.0.0.1:8935 -orchAddr 0.0.0.0:8935
 ```
 
 * Once the orchestrator is running, hold `<CTRL>` and type `<A>` then `<D>` to leave the screen session running in the background.
